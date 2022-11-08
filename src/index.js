@@ -1,11 +1,24 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
+import { GUI } from "three/examples/jsm/libs/lil-gui.module.min";
 
 import "./index.css";
 
+const conf = {
+  bg: "#484848",
+  fov: 50,
+  grid: true,
+  axes: true,
+};
+window.conf = conf;
+
+//
+// scene
+//
+
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#484848");
+scene.background = new THREE.Color(conf.bg);
 
 THREE.ColorManagement.legacyMode = false;
 
@@ -14,7 +27,7 @@ THREE.ColorManagement.legacyMode = false;
 //
 
 const camera = new THREE.PerspectiveCamera(
-  50,
+  conf.fov,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -68,7 +81,7 @@ sphere.position.y = 1;
 sphere.position.z = 5;
 scene.add(sphere);
 
-// ground plane
+// 🛬 ground plane
 
 const ground = new THREE.Mesh(
   new THREE.BoxGeometry(100, 100, 0.1),
@@ -87,7 +100,7 @@ scene.add(ground);
 // 💡 lights
 //
 
-// spot
+// 🔦 spot
 
 const spotLight = new THREE.SpotLight("white");
 spotLight.position.set(15, 15, 15);
@@ -101,22 +114,57 @@ spotLight.shadow.bias = -0.0001;
 // spotLight.shadow.camera.far = 10; // default 500
 
 scene.add(spotLight);
-scene.add(new THREE.SpotLightHelper(spotLight));
+// scene.add(new THREE.SpotLightHelper(spotLight));
 
-// ambient
+// 🌤️ ambient
 
 const ambientLight = new THREE.AmbientLight();
 ambientLight.intensity = 0.2;
 scene.add(ambientLight);
 
 //
-// dummies
+// 📐 dummies
 //
 
 const gridHelper = new THREE.GridHelper(30, 30);
 scene.add(gridHelper);
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
+
+//
+// 🎛️ GUI
+//
+
+const gui = new GUI(); // see: https://lil-gui.georgealways.com/
+
+gui
+  .add(conf, "bg")
+  .name("fov")
+  .onChange((val) => (scene.background = new THREE.Color(val)));
+
+gui
+  .addFolder("camera")
+  .close()
+  .add(conf, "fov")
+  .name("fov")
+  .onChange((val) => {
+    camera.fov = val;
+    camera.updateProjectionMatrix();
+  });
+
+gui
+  .add(conf, "grid")
+  .name("grid")
+  .onChange((val) => {
+    gridHelper.visible = val;
+  });
+
+gui
+  .add(conf, "axes")
+  .name("axes")
+  .onChange((val) => {
+    axesHelper.visible = val;
+  });
 
 //
 // 🎬 animation
