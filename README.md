@@ -1,4 +1,4 @@
-[CodeSandbox](https://codesandbox.io/s/github/abernier/tpl-r3f)
+[CodeSandbox](https://codesandbox.io/s/github/abernier/tpl-three)
 
 # INSTALL
 
