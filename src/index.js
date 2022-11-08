@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import Stats from "three/examples/jsm/libs/stats.module";
 
 import "./index.css";
 
@@ -36,6 +37,9 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping; // https://threejs.org/docs/
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // https://threejs.org/docs/#api/en/constants/Renderer
 document.body.appendChild(renderer.domElement);
+
+const stats = new Stats();
+document.body.appendChild(stats.dom);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -122,6 +126,7 @@ function animate(t) {
   requestAnimationFrame(animate);
 
   renderer.render(scene, camera);
+  stats.update();
 }
 animate();
 
