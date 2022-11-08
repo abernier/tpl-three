@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "https://abernier.github.io/tpl-three/static/css/main.93a0497a.css",
+    "main.js": "https://abernier.github.io/tpl-three/static/js/main.08d16904.js",
+    "index.html": "https://abernier.github.io/tpl-three/index.html",
+    "main.93a0497a.css.map": "https://abernier.github.io/tpl-three/static/css/main.93a0497a.css.map",
+    "main.08d16904.js.map": "https://abernier.github.io/tpl-three/static/js/main.08d16904.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93a0497a.css",
+    "static/js/main.08d16904.js"
+  ]
+}
