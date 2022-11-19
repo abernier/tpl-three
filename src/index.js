@@ -171,12 +171,10 @@ gui
 //
 
 function animate(t) {
-  requestAnimationFrame(animate);
-
   renderer.render(scene, camera);
   stats.update();
 }
-animate();
+renderer.setAnimationLoop(animate);
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
