@@ -138,8 +138,8 @@ scene.add(axesHelper);
 const gui = new GUI(); // see: https://lil-gui.georgealways.com/
 
 gui
-  .add(conf, "bg")
-  .name("fov")
+  .addColor(conf, "bg")
+  .name("bg")
   .onChange((val) => (scene.background = new THREE.Color(val)));
 
 gui
