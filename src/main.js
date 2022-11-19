@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
-import { GUI } from "three/examples/jsm/libs/lil-gui.module.min";
+import GUI from "lil-gui";
 
-import "./index.css";
+import "./style.css";
 
 const conf = {
   bg: "#484848",
