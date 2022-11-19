@@ -6,7 +6,7 @@ import GUI from "lil-gui";
 import "./style.css";
 
 const conf = {
-  bg: "#393939",
+  bg: "#454545",
   fov: 50,
   grid: true,
   axes: true,
