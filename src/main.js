@@ -4,6 +4,10 @@ import Stats from "three/examples/jsm/libs/stats.module";
 import GUI from "lil-gui";
 
 import "./style.css";
+import { ShaderMaterial } from "three";
+
+import sphereVertexShader from "./shaders/sphere/vertex.glsl";
+import sphereFragmentShader from "./shaders/sphere/fragment.glsl";
 
 const conf = {
   bg: "#393939",
@@ -75,6 +79,10 @@ scene.add(cube);
 const sphere = new THREE.Mesh(
   new THREE.IcosahedronGeometry(1, 1),
   new THREE.MeshStandardMaterial({ color: "red", flatShading: true })
+  // new ShaderMaterial({
+  //   vertexShader: sphereVertexShader,
+  //   fragmentShader: sphereFragmentShader,
+  // })
 );
 sphere.castShadow = true;
 sphere.position.y = 1;
