@@ -8,8 +8,8 @@ void main() {
   //   vec4 worldPosition = modelMatrix * localPosition;
   //   2. Transform world coordinates to view-space coordinates (origin being the "eye"/camera position)
   //   vec4 viewPosition = viewMatrix * worldPosition;
-  //   3. Transform view coordinates to screen coordinates (0,0 étant le centre de l'écran)
-	//   gl_Position = projectionMatrix * viewPosition; 
+  //   3. Transform view coordinates to NDC coordinates
+  //   gl_Position = projectionMatrix * viewPosition; 
   //
   // see: https://www.youtube.com/watch?v=Sukvxf7FfYM&t=961s
   //
