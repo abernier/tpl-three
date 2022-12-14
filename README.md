@@ -1,4 +1,4 @@
-Try on: [Codespace](https://github.com/codespaces/new?template_repository=abernier%2Ftpl-three) | [CodeSandbox](https://codesandbox.io/s/github/abernier/tpl-three)
+Try on: [Codespace](https://github.com/codespaces/new?template_repository=abernier%2Ftpl-three) | [StackBlitz](https://stackblitz.com/github/abernier/tpl-three)
 
 # INSTALL
 
